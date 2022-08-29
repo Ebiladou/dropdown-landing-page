@@ -33,7 +33,7 @@ header {
     align-items: center;
 }
 
-.laptop-nav {
+.laptop-logo{
     display: none;
 }
 
@@ -41,11 +41,16 @@ li {
     list-style: none;
 }
 
+a{
+    text-decoration: none;
+    color: var(--Almost-Black);
+}
+
 .desktop-image {
     display: none;
 }
 
-section{
+main{
     padding: 15px 0px;
 }
 
@@ -59,17 +64,25 @@ section{
 
 .content {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 10px;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+}
+
+.content .image-svgs{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    gap: 1em;
+    padding: 30px 5px;
 }
 
 .content p{
     line-height: 1.5em;
 }
 
-button{
+.section-button{
     width: 35%;
     border-radius: 7px;
     padding: 10px;
@@ -78,17 +91,71 @@ button{
     align-self: center;
 }
 
-.hamburger-nav{
+.laptop-nav{
     height: 100%;
+    width: 65%;
     position: fixed;
     top: 0;
     right: 0;
     background-color: var(--Almost-White);
-    overflow-x: hidden;
     transition: 0.2 ease-in;
-    padding-top: 20px;
+    padding: 20px 20px; 
+   
 }
 
+.features, .company{
+
+}
+
+.close-menu{
+    display: flex;
+    justify-content: right;
+    text-align: right;
+}
+
+.close-menu img{
+    padding: 0px 5px;
+}
+
+.laptop-nav-list img{
+    padding: 0px 5px;
+}
+
+
+.left-nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.right-nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.company ul{
+    padding: 0px 10px;
+}
+
+/*could not figure out why the element with this class refused taking any width I assigned to it. It just had a default width */
+.register{
+    border: 1px solid var(--Almost-Black);
+    border-radius: 10px;
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#arrow{
+    transition: all 0.3s ease;
+}
+
+#arrow:hover{
+    transform: rotate(180deg);
+}
 
 
 @media only screen and (min-width: 768px) {
@@ -96,11 +163,32 @@ button{
         display: none;
     }
 
-    .hamburger-list{
+    .hamburger-nav{
         display: none;
     }
 
-    .laptop-nav {
+    .mobile-image {
+        display: none;
+    }
+
+    .close-menu{
+        display: none;
+    }
+
+    .laptop-logo{
+        display: block;
+    }
+
+    /* Taking the mobile approach left me lost at desktop approach, I could not eliminate the position, so I gave the properties the value of "none". I wonder how inaccurate that is, but it fixed my problems so I stuck with it*/
+    .laptop-nav{
+        height: none;
+        width: 100%;
+        position: relative;
+        top: none;
+        right: none;
+        background-color: none;
+        transition: 0.2 ease-in;
+        padding: 30px 30px; 
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -113,32 +201,111 @@ button{
         gap: 20px;
     }
 
+    .left-nav ul{
+        display: flex;
+        flex-direction: row;
+   }
+
+   .right-nav ul{
+    display: flex;
+    flex-direction: row;
+   }
+
+    .features ul{
+        display: flex;
+        flex-direction: column;
+   }
+
+    .company ul{
+       display: flex;
+       flex-direction: column;
+   }
+
     ul {
         display: flex;
         align-items: center;
         gap: 20px;
     }
 
-    .mobile-image {
-        display: none;
+    .right-nav .register{
+        border: 1px solid var(--Almost-Black);
+        padding: 5px;
+        border-radius: 8px;
+    }
+
+    .features{
+        position: absolute;
+        top: 80%;
+        left: 7%;
+        padding: 5px 5px;
+        border: 1px solid var(--Almost-White);
+        border-radius: 10px;
+        background-color: var(--Almost-White);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .features ul{
+        display: flex;
+        gap: 1em;
+        padding: 5px 10px;
+    }
+
+    .company{
+        position: absolute;
+        top: 80%;
+        left: 28%;
+        padding: 5px 5px;
+        border: 1px solid var(--Almost-White);
+        border-radius: 10px;
+        background-color: var(--Almost-White);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    }
+
+    .company ul{
+        display: flex;
+        gap: 1em;
+        padding: 8px 3px;
+    }
+
+    .h1 span{
+        display: block;
+    }
+    
+    main {
+        display: flex;
+        flex-direction: row;
+        gap: 2.5em;
+        padding: 50px 90px;
+        width: 100%;
+    }
+
+    .content {
+        display: flex;
+        text-align: left;
+        width: 50%;
+        margin-top: 10%;
+        padding: 20px;
     }
 
     .desktop-image {
         display: block;
         width: 50%;
-    }
-
-    .content {
-        text-align: left;
-        width: 50%;
-    }
-
-    section {
-        display: flex;
-        padding: 50px 150px;
+        padding: 20px;
     }
 
     .big-image {
         width: 100%;
     }
+
+    .section-button{
+        width: 50%;
+        align-self: flex-start;
+    }
+
+    .image-svgs{
+        align-self: flex-start;
+    } 
+
+      
 }
+
